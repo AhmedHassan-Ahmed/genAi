@@ -13,13 +13,13 @@ import Intro3D from "./Intro3D";
 import Hero from "./Hero";
 import BounceCards from "./BounceCards";
 function App() {
-  const images = [
-    "public/eeaf5a2f76422a032d12472ff2e328bb.jpg",
-    "public/e7a64eb5cbb1ace9faa48cc8358a281b.jpg",
-    "public/1b857c45034273728acda012e79dcfe8.jpg",
-    "public/d981e0e0dd15b1a76bc11063a4164cd7.jpg",
-    "public/76738a3cce94f472c46f3d83aa739e63.jpg",
-  ];
+const images = [
+  "/eeaf5a2f76422a032d12472ff2e328bb.jpg",
+  "/e7a64eb5cbb1ace9faa48cc8358a281b.jpg",
+  "/1b857c45034273728acda012e79dcfe8.jpg",
+  "/d981e0e0dd15b1a76bc11063a4164cd7.jpg",
+  "/76738a3cce94f472c46f3d83aa739e63.jpg",
+];
 
   const transformStyles = [
     "rotate(5deg) translate(-150px)",
