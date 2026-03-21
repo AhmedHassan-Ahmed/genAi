@@ -3,7 +3,6 @@ import gsap from "gsap";
 import "./styles.css";
 
 export default function GlassHero() {
-  // ✅ explicitly typed
   const blobs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
@@ -28,7 +27,7 @@ export default function GlassHero() {
           key={i}
           ref={(el) => {
             blobs.current[i] = el;
-          }} // ✅ IMPORTANT: block body (no return)
+          }}
           className={`blob blob${i}`}
         />
       ))}
