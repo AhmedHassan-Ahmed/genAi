@@ -1,5 +1,122 @@
-body {
-  margin: 0;
-  background: url(/public/ChatGPT\ Image\ Mar\ 20\,\ 2026\,\ 02_44_42\ AM.png); /* soft beige background */
-
+.bg-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+  background: linear-gradient(135deg, #6a85f1, #fca5f1);
 }
+
+.blob {
+  position: absolute;
+  width: 60%;
+  height: 60%;
+  filter: blur(80px);
+  opacity: 0.6;
+  border-radius: 50%;
+}
+
+/* Individual gradient layers */
+.blob-0 {
+  background: radial-gradient(circle, #6a85f1, transparent);
+  top: -10%;
+  left: -10%;
+}
+
+.blob-1 {
+  background: radial-gradient(circle, #f472b6, transparent);
+  top: 20%;
+  right: -10%;
+}
+
+.blob-2 {
+  background: radial-gradient(circle, #a5b4fc, transparent);
+  bottom: -10%;
+  left: 20%;
+}
+
+.blob-3 {
+  background: radial-gradient(circle, #f9a8d4, transparent);
+  bottom: 10%;
+  right: 10%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* DARK (default) */
+.theme-dark {
+  --bg: #0b0b12;
+  --text: white;
+}
+
+/* LIGHT */
+.theme-light {
+  --bg: #f8fafc;
+  --text: #111;
+}
+
+/* RED */
+.theme-red {
+  --bg: #1a0a0a;
+  --text: #ff4d4d;
+}
+
+/* BLUE */
+.theme-blue {
+  --bg: #0a0f1a;
+  --text: #4da6ff;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  transition: all 0.4s ease;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  transition:all 0.8 ease;
+}
+.bounceCardsContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  position: absolute;
+  width: 35%;              
+  aspect-ratio: 1;
+  border: 0.8% solid #fff; 
+  border-radius: 8%;
+  overflow: hidden;
+  box-shadow: 0 1% 2.5% rgba(0, 0, 0, 0.2);
+}
+
+.card .image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(200%) skewX(-12deg);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 3s infinite;
+}
+
