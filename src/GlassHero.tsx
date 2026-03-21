@@ -3,6 +3,7 @@ import gsap from "gsap";
 import "./styles.css";
 
 export default function GlassHero() {
+  // ✅ explicitly typed
   const blobs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
@@ -22,21 +23,18 @@ export default function GlassHero() {
 
   return (
     <div className="wrapper">
-      {/* BLOBS */}
       {[0, 1, 2, 3].map((_, i) => (
         <div
           key={i}
-          ref={(el): void => {
+          ref={(el) => {
             blobs.current[i] = el;
-          }}
+          }} // ✅ IMPORTANT: block body (no return)
           className={`blob blob${i}`}
         />
       ))}
 
-      {/* ✨ OVERLAY */}
       <div className="overlay" />
 
-      {/* GLASS */}
       <div className="glass">
         <h1>Glass UI</h1>
       </div>
