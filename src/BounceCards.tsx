@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 
 interface BounceCardsProps {
@@ -25,15 +25,31 @@ export default function BounceCards({
   enableHover = false
 }: BounceCardsProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-const spread = containerWidth * 0.3;
+  const [measuredWidth, setMeasuredWidth] = useState(containerWidth);
+  const spread = measuredWidth * 0.24;
 
-const dynamicTransforms = transformStyles ?? [
-  `rotate(10deg) translate(-${spread * 2}px)`,
-  `rotate(5deg) translate(-${spread}px)`,
-  `rotate(-3deg)`,
-  `rotate(-10deg) translate(${spread}px)`,
-  `rotate(2deg) translate(${spread * 2}px)`
-];
+  const dynamicTransforms = useMemo(
+    () =>
+      transformStyles ?? [
+        `rotate(10deg) translate(-${spread * 1.7}px)`,
+        `rotate(5deg) translate(-${spread * 0.85}px)`,
+        `rotate(-3deg)`,
+        `rotate(-10deg) translate(${spread * 0.85}px)`,
+        `rotate(2deg) translate(${spread * 1.7}px)`
+      ],
+    [spread, transformStyles]
+  );
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    const observer = new ResizeObserver(([entry]) => {
+      setMeasuredWidth(entry.contentRect.width);
+    });
+
+    observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
@@ -130,8 +146,8 @@ const dynamicTransforms = transformStyles ?? [
       ref={containerRef}
       style={{
         position: 'relative',
-        width: containerWidth,
-        height: containerHeight
+        width: `min(${containerWidth}px, calc(100vw - 2rem))`,
+        height: `min(${containerHeight}px, 62vw, calc(100vh - 14rem))`
       }}
     >
       {images.map((src, idx) => (

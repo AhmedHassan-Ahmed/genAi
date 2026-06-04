@@ -21,14 +21,6 @@ const images = [
   "/76738a3cce94f472c46f3d83aa739e63.jpg",
 ];
 
-  const transformStyles = [
-    "rotate(5deg) translate(-150px)",
-    "rotate(0deg) translate(-70px)",
-    "rotate(-5deg)",
-    "rotate(5deg) translate(70px)",
-    "rotate(-5deg) translate(150px)",
-  ];
-
   const location = useLocation();
   const isRootPath = location.pathname === "/";
   const [showIntro, setShowIntro] = useState(isRootPath);
@@ -94,7 +86,7 @@ const images = [
             <Route
               path="/pricing"
               element={
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+                <div className="min-h-screen w-full flex items-center justify-center px-4 pt-32 pb-32 md:px-8 md:py-28">
                   <BounceCards
                     className="custom-bounceCards"
                     images={images}
@@ -103,7 +95,6 @@ const images = [
                     animationDelay={0.1}
                     animationStagger={0.08}
                     easeType="elastic.out(1, 0.5)"
-                    transformStyles={transformStyles}
                     enableHover
                   />
                 </div>

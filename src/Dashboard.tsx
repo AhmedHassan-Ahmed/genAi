@@ -38,13 +38,15 @@ export default function Dashboard() {
   return (
     <div
       className="
-        fixed inset-0
+        relative min-h-screen
         md:left-[90px] md:right-[90px]
         lg:left-[110px] lg:right-[110px]
         xl:left-[130px] xl:right-[130px]
         flex items-center justify-center
-        p-7 md:p-12
-        pointer-events-none
+        px-4 pb-44 pt-40
+        sm:px-6
+        md:fixed md:inset-y-0 md:min-h-0 md:p-12
+        md:pointer-events-none
       "
     >
       <div
@@ -52,7 +54,7 @@ export default function Dashboard() {
           w-full max-w-[1450px]
           mx-auto
           grid grid-cols-1 md:grid-cols-3
-          gap-7 md:gap-9
+          gap-4 sm:gap-6 md:gap-9
           pointer-events-auto
         "
       >
@@ -67,7 +69,7 @@ export default function Dashboard() {
             bg-white/10
             backdrop-blur-xl
             border border-white/20
-            p-9 md:p-12
+            p-6 sm:p-8 md:p-12
             shadow-[0_25px_90px_rgba(0,0,0,0.35)]
 
             ${
@@ -82,7 +84,7 @@ export default function Dashboard() {
         >
           <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-blue-500/20 blur-2xl opacity-50" />
 
-          <h2 className="text-white text-[1.75rem] md:text-[2.25rem] mb-6">
+          <h2 className="text-white text-[1.55rem] sm:text-[1.75rem] md:text-[2.25rem] mb-4 md:mb-6">
             Gen AI Dashboard
           </h2>
 
@@ -91,7 +93,7 @@ export default function Dashboard() {
               theme === "light"
                 ? "text-[oklch(0.62_0.21_261.56)]"
                 : "text-white/70"
-            } text-[1.05rem] md:text-[1.2rem] mb-7 leading-relaxed`}
+            } text-[1rem] md:text-[1.2rem] mb-2 md:mb-7 leading-relaxed`}
           >
             Generate content, analyze data, and build intelligent workflows.
           </p>
@@ -109,7 +111,7 @@ export default function Dashboard() {
               bg-white/10
               backdrop-blur-xl
               border border-white/20
-              p-7 md:p-8
+              p-5 sm:p-6 md:p-8
               shadow-[0_12px_45px_rgba(0,0,0,0.35)]
               ${feature.glow}
               hover:scale-[1.02]

@@ -57,7 +57,7 @@ export default function SideNav() {
             <span className="absolute inset-0 rounded-[0.9rem] bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 opacity-0 group-hover:opacity-30 blur-lg transition duration-500" />
 
             {/* Indicator */}
-            <span className="absolute -left-2 w-1 h-6 rounded-full bg-gradient-to-b from-purple-400 via-pink-400 to-blue-400 opacity-0 group-[.active]:opacity-100 shadow-[0_0_8px_rgba(168,85,247,0.7)]" />
+            <span className="absolute -top-2 h-1 w-6 rounded-full bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 opacity-0 group-[.active]:opacity-100 shadow-[0_0_8px_rgba(168,85,247,0.7)] md:-left-2 md:top-auto md:h-6 md:w-1 md:bg-gradient-to-b" />
 
             {/* Icon */}
             <motion.div
@@ -71,6 +71,7 @@ export default function SideNav() {
             <span
               className="
                 absolute left-14 md:left-20
+                hidden md:block
                 opacity-0 group-hover:opacity-100
                 translate-x-2 group-hover:translate-x-0
                 transition-all duration-300

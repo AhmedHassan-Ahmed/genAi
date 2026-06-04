@@ -10,7 +10,7 @@ const navItems = [
 
 export default function Navbar() {
   return (
-    <div className="fixed top-0 left-0 w-full z-50 flex justify-center px-6 pt-5">
+    <div className="fixed top-0 left-0 w-full z-50 flex justify-center px-3 pt-3 sm:px-5 sm:pt-5">
       <motion.nav
         initial={{ y: -60, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -19,14 +19,17 @@ export default function Navbar() {
       >
         <div
           className="
-            flex items-center justify-between
-            px-10 py-5
-            rounded-[1.4rem]
+            flex flex-col gap-4
+            px-4 py-4
+            rounded-[1rem]
             backdrop-blur-xl
             bg-white/10
             border border-white/20
             shadow-[0_16px_50px_rgba(0,0,0,0.3)]
             relative overflow-hidden
+            sm:flex-row sm:items-center sm:justify-between
+            sm:px-6
+            lg:px-10 lg:py-5 lg:rounded-[1.4rem]
           "
         >
           {/* Gradient glow */}
@@ -34,21 +37,21 @@ export default function Navbar() {
 
           {/* Logo */}
           <motion.div 
-            className="flex items-center gap-4 font-semibold text-white text-[1.45rem]"
+            className="flex items-center gap-3 self-start font-semibold text-white text-[1.1rem] sm:self-auto sm:text-[1.25rem] lg:gap-4 lg:text-[1.45rem]"
             whileHover={{ scale: 1.02 }}
           >
-            <div className="w-[3.25rem] h-[3.25rem] rounded-xl bg-gradient-to-br from-purple-500 via-pink-500 to-blue-500 shadow-lg shadow-purple-500/30" />
+            <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-purple-500 via-pink-500 to-blue-500 shadow-lg shadow-purple-500/30 lg:h-[3.25rem] lg:w-[3.25rem]" />
             <span className="tracking-wide">Modern</span>
           </motion.div>
 
           {/* Nav Links */}
-          <div className="hidden md:flex items-center gap-12 text-[1.15rem] text-white/80">
+          <div className="grid w-full grid-cols-4 items-center gap-2 text-center text-[0.78rem] text-white/80 sm:w-auto sm:text-[0.92rem] md:flex md:gap-8 lg:gap-12 lg:text-[1.15rem]">
             {navItems.map((item) => (
               <NavLink
                 key={item.name}
                 to={item.path}
                 className={({ isActive }) =>
-                  `relative group transition-all duration-300 font-medium ${
+                  `relative group min-w-0 rounded-lg px-2 py-1.5 transition-all duration-300 font-medium ${
                     isActive ? "text-white" : "text-white/70 hover:text-white"
                   }`
                 }
@@ -69,7 +72,7 @@ export default function Navbar() {
           </div>
 
           {/* Right Actions */}
-          <div className="flex items-center gap-4">
+          <div className="hidden items-center gap-4 lg:flex">
             <motion.button
               whileHover={{ scale: 1.05, y: -1 }}
               whileTap={{ scale: 0.95 }}

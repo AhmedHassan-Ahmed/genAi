@@ -96,13 +96,13 @@ const itemVariants = {
 export default function Features() {
   return (
     <div className="min-h-screen text-white overflow-hidden relative">
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 pb-32 pt-40 sm:px-6 md:py-28">
         {/* Hero Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-20"
         >
           <motion.div
             initial={{ scale: 0 }}
@@ -116,14 +116,14 @@ export default function Features() {
             </span>
           </motion.div>
 
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+          <h1 className="text-[clamp(2.4rem,10vw,4.5rem)] font-bold mb-6 leading-tight">
             Everything You Need to{" "}
             <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
               Scale Faster
             </span>
           </h1>
 
-          <p className="text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
             Build intelligent applications with our comprehensive suite of
             AI-powered tools. From neural processing to predictive analytics,
             we've got you covered.
@@ -135,15 +135,15 @@ export default function Features() {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20"
+          className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 mb-12 md:mb-20"
         >
           {stats.map((stat, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
-              className="text-center p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
+              className="text-center p-4 sm:p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
             >
-              <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                 {stat.value}
               </div>
               <div className="text-sm text-white/50 mt-2">{stat.label}</div>
@@ -163,7 +163,7 @@ export default function Features() {
               key={index}
               variants={itemVariants}
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
-              className="group relative p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm overflow-hidden"
+              className="group relative p-6 sm:p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm overflow-hidden"
             >
               <div
                 className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
@@ -202,13 +202,13 @@ export default function Features() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.6 }}
-          className="mt-20 text-center"
+          className="mt-14 text-center md:mt-20"
         >
-          <div className="inline-flex flex-col sm:flex-row items-center gap-4 p-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md">
-            <button className="px-8 py-4 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all hover:scale-105">
+          <div className="inline-flex w-full max-w-md flex-col items-stretch gap-3 p-2 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md sm:w-auto sm:max-w-none sm:flex-row sm:items-center sm:rounded-full">
+            <button className="px-6 py-4 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all hover:scale-105 sm:px-8">
               Start Free Trial
             </button>
-            <button className="px-8 py-4 rounded-full text-white/80 hover:text-white font-medium hover:bg-white/5 transition-all">
+            <button className="px-6 py-4 rounded-full text-white/80 hover:text-white font-medium hover:bg-white/5 transition-all sm:px-8">
               View Documentation →
             </button>
           </div>

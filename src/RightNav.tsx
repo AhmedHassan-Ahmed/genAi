@@ -18,17 +18,21 @@ export default function RightNav() {
       animate={{ x: 0, opacity: 1 }}
       transition={{ duration: 0.7, ease: "easeOut" }}
       className="
-        fixed top-1/2 right-7 -translate-y-1/2
-        w-[85px]
-        h-[38vh]
-        rounded-[1.8rem]
+        fixed bottom-[104px] left-1/2 -translate-x-1/2
+        h-[58px] w-[92vw] max-w-[320px]
+        rounded-[1.25rem]
         backdrop-blur-2xl
         bg-white/10
         border border-white/20
         shadow-[0_25px_70px_rgba(0,0,0,0.35)]
-        flex flex-col items-center justify-center
-        gap-7 py-8
+        flex flex-row items-center justify-center
+        gap-4 px-4
         z-50
+
+        md:top-1/2 md:right-7 md:left-auto md:bottom-auto
+        md:h-[38vh] md:w-[85px] md:max-w-none
+        md:-translate-y-1/2 md:translate-x-0
+        md:flex-col md:gap-7 md:rounded-[1.8rem] md:px-0 md:py-8
       "
     >
       {/* Background glow */}
@@ -44,7 +48,7 @@ export default function RightNav() {
             onClick={() => setTheme(item.value)}
             className={`
               relative group flex items-center justify-center
-              p-3.5 rounded-[0.9rem] transition-all duration-300
+              p-3 rounded-[0.9rem] transition-all duration-300 md:p-3.5
               ${
                 active
                   ? "bg-white/25 scale-105 shadow-[0_0_20px_rgba(168,85,247,0.35)]"
@@ -55,8 +59,8 @@ export default function RightNav() {
             {/* Active Indicator (Left Side Bar) */}
             <span 
               className={`
-                absolute -left-2 w-1 h-6 rounded-full 
-                bg-gradient-to-b from-purple-400 via-pink-400 to-blue-400 
+                absolute -top-2 h-1 w-6 rounded-full md:-left-2 md:top-auto md:h-6 md:w-1
+                bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 md:bg-gradient-to-b
                 shadow-[0_0_8px_rgba(168,85,247,0.7)]
                 transition-opacity duration-300
                 ${active ? "opacity-100" : "opacity-0"}
@@ -78,7 +82,7 @@ export default function RightNav() {
             {/* Tooltip */}
             <span
               className="
-                absolute right-14
+                absolute bottom-14 hidden md:right-14 md:bottom-auto md:block
                 opacity-0 group-hover:opacity-100
                 translate-x-2 group-hover:translate-x-0
                 transition-all duration-300
